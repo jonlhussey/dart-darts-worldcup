@@ -256,7 +256,11 @@ const BIN_ID  = '6a2c4f45f5f4af5e29e81ff8';
 const API_KEY = '$2a$10$X48NnKwxaa6B44BOToTWMe1SnORSAPoSJDntiXzC/0xyNpphfG1Rq';
 const BIN_URL = 'https://api.jsonbin.io/v3/b/'+BIN_ID;
 const ESPN_URL  = 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard';
-const PROXY_URL = 'https://api.allorigins.win/get?url=';
+const PROXIES = [
+  'https://corsproxy.io/?',
+  'https://api.codetabs.com/v1/proxy?quest=',
+  'https://api.allorigins.win/get?url=',
+];
 
 // ── TEAMS ─────────────────────────────────────────────────────────────────────
 const TEAMS = {
@@ -423,19 +427,30 @@ function autoScoreFromESPN(games){
 
 // ── ESPN FETCH ────────────────────────────────────────────────────────────────
 async function fetchScores(){
-  try{
-    const res=await fetch(PROXY_URL+encodeURIComponent(ESPN_URL));
-    const json=await res.json();
-    const data=JSON.parse(json.contents);
-    espnGames=data.events||[];
-    renderScores();
-    renderH2H();
-    autoScoreFromESPN(espnGames);
-  }catch(e){
-    document.getElementById('scores-container').innerHTML=
-      '<div class="scores-msg">⚡ Live scores unavailable — commissioner can update manually in Admin.</div>';
-    document.getElementById('scores-status').textContent='Offline';
+  for(const proxy of PROXIES){
+    try{
+      const url = proxy + encodeURIComponent(ESPN_URL);
+      const res = await fetch(url, {signal: AbortSignal.timeout(8000)});
+      if(!res.ok) continue;
+      const text = await res.text();
+      // allorigins wraps in {contents:...}, others return raw JSON
+      let data;
+      try{
+        const json=JSON.parse(text);
+        data = json.contents ? JSON.parse(json.contents) : json;
+      }catch(e){ continue; }
+      if(!data || !data.events) continue;
+      espnGames=data.events||[];
+      renderScores();
+      renderH2H();
+      autoScoreFromESPN(espnGames);
+      return; // success — stop trying proxies
+    }catch(e){ continue; }
   }
+  // All proxies failed
+  document.getElementById('scores-container').innerHTML=
+    '<div class="scores-msg">⚡ Live scores unavailable — commissioner can update manually in Admin.</div>';
+  document.getElementById('scores-status').textContent='Offline';
 }
 
 // ── RENDER: MATCH CARDS ───────────────────────────────────────────────────────
