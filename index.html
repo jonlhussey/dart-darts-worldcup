@@ -17,7 +17,7 @@ header{text-align:center;padding:40px 0 32px;border-bottom:1px solid rgba(201,16
 h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,6vw,68px);letter-spacing:0.04em;color:var(--gold);line-height:1;text-shadow:0 0 40px rgba(201,168,76,0.3);}
 .subtitle{font-size:13px;color:var(--gray);letter-spacing:0.15em;text-transform:uppercase;margin-top:6px;}
 
-/* ── SCORES ── */
+/* SCORES */
 #scores-section{margin-bottom:12px;}
 .scores-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
 .scores-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.05em;color:var(--gold);}
@@ -38,37 +38,29 @@ h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,6vw,68px);letter-spa
 .game-score.sched{font-size:13px;color:var(--gray);font-family:'DM Sans',sans-serif;}
 .game-info{font-size:11px;color:var(--gray);margin-top:4px;}
 .scores-msg{font-size:13px;color:var(--gray);padding:16px;text-align:center;background:rgba(255,255,255,0.03);border-radius:10px;border:1px solid rgba(255,255,255,0.06);}
-.scores-loading{font-size:13px;color:var(--gray);padding:16px;text-align:center;}
 
-/* ── HEAD TO HEAD SPOTLIGHT ── */
+/* H2H SPOTLIGHT */
 #h2h-section{margin-bottom:28px;}
-.h2h-card{
-  background:linear-gradient(135deg,rgba(201,168,76,0.08) 0%,rgba(10,42,26,0.95) 50%,rgba(201,168,76,0.08) 100%);
-  border:1px solid rgba(201,168,76,0.35);
-  border-radius:16px;
-  padding:24px 20px 20px;
-  position:relative;
-  overflow:hidden;
-}
-.h2h-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,0.12) 0%,transparent 65%);pointer-events:none;}
+.h2h-card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.35);border-radius:16px;padding:24px 20px 20px;position:relative;overflow:hidden;}
+.h2h-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,0.1) 0%,transparent 65%);pointer-events:none;}
 .h2h-label{text-align:center;font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:var(--gold);margin-bottom:16px;opacity:0.8;}
 .h2h-matchup{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:12px;}
 .h2h-side{text-align:center;}
 .h2h-player{font-family:'Bebas Neue',sans-serif;font-size:clamp(28px,5vw,48px);letter-spacing:0.03em;color:var(--white);line-height:1;margin-bottom:4px;}
-.h2h-country{font-size:clamp(12px,2vw,15px);color:var(--gray);margin-bottom:6px;font-weight:500;}
 .h2h-flag{font-size:clamp(28px,5vw,44px);display:block;margin-bottom:4px;}
+.h2h-country{font-size:clamp(12px,2vw,15px);color:var(--gray);margin-bottom:4px;font-weight:500;}
 .h2h-pts{font-size:11px;color:var(--gold);opacity:0.8;}
 .h2h-center{text-align:center;}
-.h2h-score{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,8vw,72px);color:var(--gold);line-height:1;letter-spacing:0.02em;text-shadow:0 0 30px rgba(201,168,76,0.4);}
-.h2h-clock{font-size:12px;color:#E74C3C;font-weight:700;letter-spacing:0.1em;margin-top:2px;}
-.h2h-clock.final{color:var(--gray);}
-.h2h-clock.upcoming{color:var(--gray);}
+.h2h-score{font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,8vw,72px);color:var(--gold);line-height:1;letter-spacing:0.02em;}
+.h2h-clock{font-size:12px;color:var(--gray);margin-top:2px;letter-spacing:0.05em;}
+.h2h-clock.live-clk{color:#E74C3C;}
 .h2h-live-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(231,76,60,0.15);border:1px solid rgba(231,76,60,0.4);border-radius:20px;padding:3px 10px;font-size:11px;color:#E74C3C;font-weight:700;margin-top:8px;letter-spacing:0.08em;}
 .h2h-vs{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--gray);opacity:0.6;}
-.h2h-winner{color:var(--gold);}
-.h2h-loser{opacity:0.5;}
+.h2h-winner .h2h-player{color:var(--gold);}
+.h2h-loser{opacity:0.4;}
+.h2h-wrap{margin-bottom:16px;}
 
-/* ── LEGEND ── */
+/* LEGEND */
 .scoring-legend{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:32px;}
 .score-pill{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:6px 14px;font-size:12px;color:var(--gray);}
 .score-pill span{color:var(--gold);font-weight:600;}
@@ -78,14 +70,14 @@ h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,6vw,68px);letter-spa
 .sync-badge.syncing .sync-dot{background:var(--gold);animation:blink 1s infinite;}
 .sync-badge.error .sync-dot{background:var(--red);}
 
-/* ── TABS ── */
+/* TABS */
 .tabs{display:flex;gap:4px;margin-bottom:24px;background:rgba(255,255,255,0.04);border-radius:10px;padding:4px;}
 .tab{flex:1;padding:10px;text-align:center;border-radius:8px;cursor:pointer;font-size:13px;font-weight:500;color:var(--gray);border:none;background:none;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
 .tab.active{background:var(--green-field);color:var(--white);box-shadow:0 2px 8px rgba(0,0,0,0.3);}
 .tab:hover:not(.active){color:var(--white);}
 .view{display:none;}.view.active{display:block;}
 
-/* ── LEADERBOARD ── */
+/* LEADERBOARD */
 .leaderboard{display:flex;flex-direction:column;gap:10px;}
 .player-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px 20px;display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:16px;cursor:pointer;transition:all 0.2s;}
 .player-card:hover{border-color:rgba(201,168,76,0.3);background:rgba(255,255,255,0.06);}
@@ -112,7 +104,7 @@ h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,6vw,68px);letter-spa
 .team-chip-stage{font-size:11px;color:var(--gray);}
 .team-chip-pts{font-size:11px;color:var(--gold);}
 
-/* ── STANDINGS ── */
+/* STANDINGS */
 .standings-grid{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;}
 .standings-header{display:grid;grid-template-columns:40px 1fr repeat(5,70px);padding:12px 20px;font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:0.1em;border-bottom:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);}
 .standings-row{display:grid;grid-template-columns:40px 1fr repeat(5,70px);padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.05);align-items:center;font-size:14px;}
@@ -120,7 +112,7 @@ h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,6vw,68px);letter-spa
 .standings-row .pts{color:var(--gold);font-weight:600;font-family:'Bebas Neue',sans-serif;font-size:18px;}
 .col-center{text-align:center;}
 
-/* ── ADMIN ── */
+/* ADMIN */
 .pw-gate{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:16px;padding:48px 32px;text-align:center;max-width:420px;margin:0 auto;}
 .pw-gate h3{font-family:'Bebas Neue',sans-serif;font-size:28px;color:var(--gold);letter-spacing:0.05em;margin-bottom:8px;}
 .pw-gate p{font-size:13px;color:var(--gray);margin-bottom:24px;}
@@ -163,25 +155,22 @@ h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,6vw,68px);letter-spa
   <p class="subtitle">Snake Draft · 9 Players · 4 Rounds · June 11 – July 19, 2026</p>
 </header>
 
-<!-- TODAY'S MATCHES -->
 <div id="scores-section">
   <div class="scores-header">
     <span class="scores-title">⚽ Today's &amp; Upcoming Matches</span>
     <span class="live-dot" id="live-dot"></span>
     <span class="scores-status" id="scores-status">Loading...</span>
   </div>
-  <div id="scores-container"><div class="scores-loading">Fetching scores...</div></div>
+  <div id="scores-container"><div style="font-size:13px;color:var(--gray);padding:16px;text-align:center;">Fetching scores...</div></div>
 </div>
 
-<!-- HEAD TO HEAD SPOTLIGHT -->
 <div id="h2h-section"></div>
 
-<!-- LEGEND -->
 <div class="scoring-legend">
   <div class="score-pill">Win <span>3 pts</span></div>
   <div class="score-pill">Draw <span>1 pt</span></div>
   <div class="score-pill">Loss <span>0 pts</span></div>
-  <div class="score-pill" style="border-color:rgba(201,168,76,0.25);">Auto-scores from ESPN</div>
+  <div class="score-pill" style="border-color:rgba(201,168,76,0.25);">Commissioner updates scores</div>
   <div class="sync-badge syncing" id="sync-badge"><span class="sync-dot"></span><span id="sync-text">Connecting...</span></div>
 </div>
 
@@ -192,7 +181,7 @@ h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,6vw,68px);letter-spa
 </div>
 
 <div id="view-leaderboard" class="view active">
-  <div class="leaderboard" id="leaderboard-list"><div class="scores-loading">Loading...</div></div>
+  <div class="leaderboard" id="leaderboard-list"><div style="font-size:13px;color:var(--gray);padding:16px;text-align:center;">Loading...</div></div>
   <p class="last-updated" id="last-updated"></p>
 </div>
 
@@ -221,7 +210,7 @@ h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,6vw,68px);letter-spa
   </div>
   <div id="admin-unlocked" class="admin-unlocked">
     <div class="admin-bar">
-      <span>✅ Commissioner mode — changes sync to all users instantly</span>
+      <span>✅ Commissioner mode — saves sync to all users instantly</span>
       <button class="btn btn-sm btn-ghost" onclick="lockAdmin()">Lock</button>
     </div>
     <div class="admin-section">
@@ -233,8 +222,8 @@ h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,6vw,68px);letter-spa
       </div>
     </div>
     <div class="admin-section">
-      <h3>Override Team Results</h3>
-      <p>ESPN auto-scores completed games every 60 seconds. Use this only to correct errors — manual overrides won't be overwritten by ESPN.</p>
+      <h3>Update Team Results</h3>
+      <p>Set each team's W-D-L record after each match day. Hit Save to push to everyone instantly.</p>
       <div class="stage-grid" id="stage-grid"></div>
       <button class="btn" onclick="saveResults()">💾 Save &amp; Sync to Everyone</button>
     </div>
@@ -247,22 +236,24 @@ h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,6vw,68px);letter-spa
   </div>
 </div>
 
-</div><!-- /container -->
+</div>
 <div class="save-toast" id="save-toast"></div>
 
 <script>
-// ── CONFIG ────────────────────────────────────────────────────────────────────
+// ── CONFIG ─────────────────────────────────────────────────────────────────
 const BIN_ID  = '6a2c4f45f5f4af5e29e81ff8';
 const API_KEY = '$2a$10$X48NnKwxaa6B44BOToTWMe1SnORSAPoSJDntiXzC/0xyNpphfG1Rq';
-const BIN_URL = 'https://api.jsonbin.io/v3/b/'+BIN_ID;
-const ESPN_URL  = 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard';
-const PROXIES = [
+const BIN_URL = 'https://api.jsonbin.io/v3/b/' + BIN_ID;
+
+// ESPN — READ ONLY, never writes to database
+const ESPN_URL = 'https://site.api.espn.com/apis/site/v2/sports/soccer/fifa.world/scoreboard';
+const PROXIES  = [
   'https://corsproxy.io/?',
   'https://api.codetabs.com/v1/proxy?quest=',
   'https://api.allorigins.win/get?url=',
 ];
 
-// ── TEAMS ─────────────────────────────────────────────────────────────────────
+// ── TEAMS ──────────────────────────────────────────────────────────────────
 const TEAMS = {
   'Spain':{flag:'🇪🇸'},'France':{flag:'🇫🇷'},'England':{flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿'},
   'Brazil':{flag:'🇧🇷'},'Argentina':{flag:'🇦🇷'},'Germany':{flag:'🇩🇪'},
@@ -291,7 +282,7 @@ const ESPN_MAP = {
   'Egypt':'Egypt','Scotland':'Scotland','IR Iran':'Iran','Iran':'Iran',
   'Austria':'Austria','Paraguay':'Paraguay','Algeria':'Algeria',
   'Czech Republic':'Czechia','Czechia':'Czechia',
-  'Bosnia and Herzegovina':'Bosnia','Bosnia':'Bosnia',
+  'Bosnia and Herzegovina':'Bosnia','Bosnia':'Bosnia','Bosnia-Herzegovina':'Bosnia',
   'Ghana':'Ghana','Qatar':'Qatar',
 };
 
@@ -307,13 +298,15 @@ const DEFAULT_DRAFT = [
   {player:'McIlroy',   picks:['Belgium',     'Norway',    'Egypt',       'Scotland']},
 ];
 
-// ── STATE ─────────────────────────────────────────────────────────────────────
+// ── STATE ──────────────────────────────────────────────────────────────────
+// results and draft are ONLY ever written by commissioner via saveToCloud()
+// ESPN data is display-only and never touches these
 let results = {};
 let draft   = DEFAULT_DRAFT.map(p=>({...p,picks:[...p.picks]}));
 let espnGames = [];
-Object.keys(TEAMS).forEach(t=>{results[t]={w:0,d:0,l:0,manual:false};});
+Object.keys(TEAMS).forEach(t=>{results[t]={w:0,d:0,l:0};});
 
-// ── JSONBIN ───────────────────────────────────────────────────────────────────
+// ── JSONBIN: READ ──────────────────────────────────────────────────────────
 function setSyncBadge(state,text){
   const b=document.getElementById('sync-badge'),t=document.getElementById('sync-text');
   b.className='sync-badge '+state; t.textContent=text;
@@ -323,18 +316,22 @@ async function loadFromCloud(){
   setSyncBadge('syncing','Loading...');
   try{
     const res=await fetch(BIN_URL+'/latest',{headers:{'X-Master-Key':API_KEY}});
+    if(!res.ok) throw new Error('HTTP '+res.status);
     const json=await res.json();
     const data=json.record;
     if(data.results) results=data.results;
     if(data.draft)   draft=data.draft;
     setSyncBadge('synced','Live ✓');
-    renderLeaderboard(); renderStandings();
+    renderLeaderboard();
+    renderStandings();
   }catch(e){
     setSyncBadge('error','Offline');
+    console.warn('Cloud load failed:',e);
     renderLeaderboard();
   }
 }
 
+// ── JSONBIN: WRITE (commissioner only) ────────────────────────────────────
 async function saveToCloud(){
   setSyncBadge('syncing','Saving...');
   try{
@@ -343,125 +340,54 @@ async function saveToCloud(){
       headers:{'Content-Type':'application/json','X-Master-Key':API_KEY},
       body:JSON.stringify({results,draft,lastUpdated:new Date().toLocaleString()})
     });
-    if(!res.ok) throw new Error();
+    if(!res.ok) throw new Error('HTTP '+res.status);
     setSyncBadge('synced','Synced ✓');
     showToast('Saved & synced to everyone!');
-    renderLeaderboard(); renderStandings();
+    renderLeaderboard();
+    renderStandings();
   }catch(e){
     setSyncBadge('error','Sync failed');
     showToast('Save failed — check connection');
+    console.error('Cloud save failed:',e);
   }
 }
 
-// ── AUTO-SCORE FROM ESPN ──────────────────────────────────────────────────────
-// Build W-D-L for every team from all completed ESPN games
-function autoScoreFromESPN(games){
-  // Only touch teams that don't have a manual override
-  const autoResults = {};
-  Object.keys(TEAMS).forEach(t=>{
-    if(!results[t]?.manual){
-      autoResults[t]={w:0,d:0,l:0,manual:false};
-    }
-  });
-
-  games.forEach(event=>{
-    const status=event.status.type;
-    if(status.state !== 'post') return; // only finished games
-
-    const comp=event.competitions[0];
-    const home=comp.competitors.find(c=>c.homeAway==='home');
-    const away=comp.competitors.find(c=>c.homeAway==='away');
-    if(!home||!away) return;
-
-    const homeName=ESPN_MAP[home.team.displayName];
-    const awayName=ESPN_MAP[away.team.displayName];
-    if(!homeName||!awayName) return;
-    if(results[homeName]?.manual||results[awayName]?.manual) return;
-
-    const hs=parseInt(home.score)||0;
-    const as=parseInt(away.score)||0;
-
-    if(!autoResults[homeName]) autoResults[homeName]={w:0,d:0,l:0,manual:false};
-    if(!autoResults[awayName]) autoResults[awayName]={w:0,d:0,l:0,manual:false};
-
-    if(hs>as){
-      autoResults[homeName].w++;
-      autoResults[awayName].l++;
-    } else if(as>hs){
-      autoResults[awayName].w++;
-      autoResults[homeName].l++;
-    } else {
-      // Draw — applies in group stage; in knockouts treat as loss for both
-      // (the winner on penalties already shows score difference in ESPN)
-      const isKnockout = event.season?.slug?.includes('knockout') ||
-                         comp.notes?.[0]?.headline?.toLowerCase().includes('round of') ||
-                         comp.notes?.[0]?.headline?.toLowerCase().includes('quarter') ||
-                         comp.notes?.[0]?.headline?.toLowerCase().includes('semi') ||
-                         comp.notes?.[0]?.headline?.toLowerCase().includes('final');
-      if(isKnockout){
-        autoResults[homeName].l++;
-        autoResults[awayName].l++;
-      } else {
-        autoResults[homeName].d++;
-        autoResults[awayName].d++;
-      }
-    }
-  });
-
-  // Merge auto results into main results (skip manual overrides)
-  let changed=false;
-  Object.keys(autoResults).forEach(t=>{
-    if(!results[t]?.manual){
-      const r=autoResults[t];
-      if(results[t]?.w!==r.w||results[t]?.d!==r.d||results[t]?.l!==r.l){
-        results[t]=r; changed=true;
-      }
-    }
-  });
-
-  if(changed){
-    results._lastUpdated='Auto-updated '+new Date().toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
-    saveToCloud();
-  }
-}
-
-// ── ESPN FETCH ────────────────────────────────────────────────────────────────
+// ── ESPN: READ-ONLY display ────────────────────────────────────────────────
 async function fetchScores(){
   for(const proxy of PROXIES){
     try{
-      const url = proxy + encodeURIComponent(ESPN_URL);
-      const res = await fetch(url, {signal: AbortSignal.timeout(8000)});
+      const url=proxy+encodeURIComponent(ESPN_URL);
+      const res=await fetch(url,{signal:AbortSignal.timeout(8000)});
       if(!res.ok) continue;
-      const text = await res.text();
-      // allorigins wraps in {contents:...}, others return raw JSON
+      const text=await res.text();
       let data;
       try{
         const json=JSON.parse(text);
-        data = json.contents ? JSON.parse(json.contents) : json;
-      }catch(e){ continue; }
-      if(!data || !data.events) continue;
-      espnGames=data.events||[];
-      renderScores();
-      renderH2H();
-      autoScoreFromESPN(espnGames);
-      return; // success — stop trying proxies
-    }catch(e){ continue; }
+        // allorigins wraps in {contents}, corsproxy returns raw
+        data=json.contents?JSON.parse(json.contents):json;
+      }catch(e){continue;}
+      if(!data||!Array.isArray(data.events)) continue;
+      espnGames=data.events;
+      renderScores();   // show match cards
+      renderH2H();      // show spotlight — display only, no writes
+      return;
+    }catch(e){continue;}
   }
-  // All proxies failed
+  // All proxies failed — show graceful message, do NOT touch results
   document.getElementById('scores-container').innerHTML=
-    '<div class="scores-msg">⚡ Live scores unavailable — commissioner can update manually in Admin.</div>';
+    '<div class="scores-msg">⚡ Live scores unavailable right now. Commissioner updates scores manually in Admin.</div>';
   document.getElementById('scores-status').textContent='Offline';
 }
 
-// ── RENDER: MATCH CARDS ───────────────────────────────────────────────────────
+// ── RENDER: MATCH CARDS ────────────────────────────────────────────────────
 function renderScores(){
   const container=document.getElementById('scores-container');
   if(!espnGames.length){
     const today=new Date(),kickoff=new Date('2026-06-11T00:00:00');
-    const d=Math.ceil((kickoff-today)/(864e5));
+    const d=Math.ceil((kickoff-today)/864e5);
     const msg=today<kickoff
-      ? '⏳ Tournament kicks off June 11 — <strong>'+d+' day'+(d!==1?'s':'')+' to go!</strong> Live scores will appear here once matches begin.'
-      : 'No matches today — check back on the next match day!';
+      ?'⏳ Tournament kicks off June 11 — <strong>'+d+' day'+(d!==1?'s':'')+' to go!</strong>'
+      :'No matches today — check back on the next match day!';
     container.innerHTML='<div class="scores-msg">'+msg+'</div>';
     document.getElementById('scores-status').textContent=today<kickoff?'Starts in '+d+'d':'No games today';
     return;
@@ -476,40 +402,37 @@ function renderScores(){
     if(isLive) hasLive=true;
     const hf=TEAMS[ESPN_MAP[home?.team.displayName]]?.flag||'🏳️';
     const af=TEAMS[ESPN_MAP[away?.team.displayName]]?.flag||'🏳️';
-    const hn=home?.team.shortDisplayName||'?';
-    const an=away?.team.shortDisplayName||'?';
+    const hn=home?.team.shortDisplayName||home?.team.displayName||'?';
+    const an=away?.team.shortDisplayName||away?.team.displayName||'?';
     let scoreHTML,stClass='',cardClass='';
     if(isLive){scoreHTML='<div class="game-score">'+away.score+' – '+home.score+'</div>';stClass='ls';cardClass='live';}
     else if(isDone){scoreHTML='<div class="game-score">'+away.score+' – '+home.score+'</div>';cardClass='final';}
     else{const t=new Date(ev.date).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});scoreHTML='<div class="game-score sched">'+t+'</div>';}
     const clk=isLive?(st.displayClock||''):isDone?'Final':'';
     const ds=new Date(ev.date).toLocaleDateString([],{weekday:'short',month:'short',day:'numeric'});
-    return '<div class="game-card '+cardClass+'"><div class="game-status '+stClass+'">'+(isLive?'● LIVE':isDone?'Final':'Upcoming')+' '+clk+'</div><div class="game-teams"><div class="game-team">'+af+' '+an+'</div>'+scoreHTML+'<div class="game-team away">'+hn+' '+hf+'</div></div><div class="game-info">'+ds+' · '+(ev.name.split(' at ')[1]||'')+'</div></div>';
+    return '<div class="game-card '+cardClass+'"><div class="game-status '+stClass+'">'+(isLive?'● LIVE':isDone?'Final':'Upcoming')+' '+clk+'</div><div class="game-teams"><div class="game-team">'+af+' '+an+'</div>'+scoreHTML+'<div class="game-team away">'+hn+' '+hf+'</div></div><div class="game-info">'+ds+(ev.name.split(' at ')[1]?' · '+ev.name.split(' at ')[1]:'')+'</div></div>';
   }).join('');
   container.innerHTML='<div class="games-grid">'+cards+'</div>';
   document.getElementById('live-dot').className='live-dot'+(hasLive?' active':'');
   document.getElementById('scores-status').textContent=hasLive?'Live now':'Updated '+new Date().toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
 }
 
-// ── RENDER: HEAD TO HEAD SPOTLIGHT ───────────────────────────────────────────
+// ── RENDER: H2H SPOTLIGHT (display only) ──────────────────────────────────
 function renderH2H(){
   const section=document.getElementById('h2h-section');
   const matchups=[];
-
   espnGames.forEach(ev=>{
     const comp=ev.competitions[0];
     const home=comp.competitors.find(c=>c.homeAway==='home');
     const away=comp.competitors.find(c=>c.homeAway==='away');
     if(!home||!away) return;
-    const homeName=ESPN_MAP[home.team.displayName];
-    const awayName=ESPN_MAP[away.team.displayName];
+    // Try both displayName and name for better matching
+    const homeName=ESPN_MAP[home.team.displayName]||ESPN_MAP[home.team.name]||ESPN_MAP[home.team.shortDisplayName];
+    const awayName=ESPN_MAP[away.team.displayName]||ESPN_MAP[away.team.name]||ESPN_MAP[away.team.shortDisplayName];
     if(!homeName||!awayName) return;
-
-    // Find pool owners of each team
     const homeOwner=draft.find(p=>p.picks.includes(homeName));
     const awayOwner=draft.find(p=>p.picks.includes(awayName));
-    if(!homeOwner||!awayOwner||homeOwner===awayOwner) return; // must be two different pool members
-
+    if(!homeOwner||!awayOwner||homeOwner.player===awayOwner.player) return;
     matchups.push({ev,home,away,homeName,awayName,homeOwner,awayOwner});
   });
 
@@ -518,48 +441,37 @@ function renderH2H(){
   const html=matchups.map(({ev,home,away,homeName,awayName,homeOwner,awayOwner})=>{
     const st=ev.status.type;
     const isLive=st.state==='in',isDone=st.state==='post';
-    const hs=parseInt(home.score)||0;
-    const as=parseInt(away.score)||0;
-
-    // Determine winner for styling
-    let awayWin=false,homeWin=false,draw=false;
-    if(isDone){
-      if(as>hs) awayWin=true;
-      else if(hs>as) homeWin=true;
-      else draw=true;
-    }
-
+    const hs=parseInt(home.score)||0,as=parseInt(away.score)||0;
+    let awayWin=false,homeWin=false;
+    if(isDone){if(as>hs)awayWin=true;else if(hs>as)homeWin=true;}
     const awayFlag=TEAMS[awayName]?.flag||'🏳️';
     const homeFlag=TEAMS[homeName]?.flag||'🏳️';
     const kickoff=new Date(ev.date).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
     const dateStr=new Date(ev.date).toLocaleDateString([],{weekday:'short',month:'short',day:'numeric'});
-
     let scoreBlock,clockBlock,awayClass='',homeClass='';
     if(isLive){
       scoreBlock='<div class="h2h-score">'+as+' – '+hs+'</div>';
-      clockBlock='<div class="h2h-clock">'+st.displayClock+'</div><div class="h2h-live-badge"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#E74C3C;margin-right:4px;animation:blink 1s infinite;"></span>LIVE</div>';
-    } else if(isDone){
+      clockBlock='<div class="h2h-live-badge"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#E74C3C;margin-right:4px;animation:blink 1s infinite;"></span>LIVE</div><div class="h2h-clock live-clk">'+st.displayClock+'</div>';
+    }else if(isDone){
       scoreBlock='<div class="h2h-score">'+as+' – '+hs+'</div>';
-      clockBlock='<div class="h2h-clock final">Final</div>';
+      clockBlock='<div class="h2h-clock">Final</div>';
       if(awayWin){awayClass='h2h-winner';homeClass='h2h-loser';}
       else if(homeWin){homeClass='h2h-winner';awayClass='h2h-loser';}
-    } else {
-      scoreBlock='<div class="h2h-vs">VS</div><div style="font-size:13px;color:var(--gray);margin-top:4px;">'+kickoff+'</div>';
-      clockBlock='<div class="h2h-clock upcoming">'+dateStr+'</div>';
+    }else{
+      scoreBlock='<div class="h2h-vs">VS</div><div style="font-size:14px;color:var(--white);font-weight:500;margin-top:4px;">'+kickoff+'</div>';
+      clockBlock='<div class="h2h-clock">'+dateStr+'</div>';
     }
-
-    return '<div class="h2h-card" style="margin-bottom:16px;"><div class="h2h-label">🔥 Pool Matchup</div><div class="h2h-matchup"><div class="h2h-side '+awayClass+'"><div class="h2h-player">'+awayOwner.player+'</div><span class="h2h-flag">'+awayFlag+'</span><div class="h2h-country">'+awayName+'</div><div class="h2h-pts">'+playerScore(awayOwner)+' pts total</div></div><div class="h2h-center">'+scoreBlock+clockBlock+'</div><div class="h2h-side '+homeClass+'"><div class="h2h-player">'+homeOwner.player+'</div><span class="h2h-flag">'+homeFlag+'</span><div class="h2h-country">'+homeName+'</div><div class="h2h-pts">'+playerScore(homeOwner)+' pts total</div></div></div></div>';
+    return '<div class="h2h-wrap"><div class="h2h-label">🔥 Pool Matchup</div><div class="h2h-card"><div class="h2h-matchup"><div class="h2h-side '+awayClass+'"><div class="h2h-player">'+awayOwner.player+'</div><span class="h2h-flag">'+awayFlag+'</span><div class="h2h-country">'+awayName+'</div><div class="h2h-pts">'+playerScore(awayOwner)+' pts total</div></div><div class="h2h-center">'+scoreBlock+clockBlock+'</div><div class="h2h-side '+homeClass+'"><div class="h2h-player">'+homeOwner.player+'</div><span class="h2h-flag">'+homeFlag+'</span><div class="h2h-country">'+homeName+'</div><div class="h2h-pts">'+playerScore(homeOwner)+' pts total</div></div></div></div></div>';
   }).join('');
-
   section.innerHTML=html;
 }
 
-// ── SCORING ───────────────────────────────────────────────────────────────────
-function teamScore(t){const r=results[t];return r?(r.w*3)+(r.d):0;}
+// ── SCORING ────────────────────────────────────────────────────────────────
+function teamScore(t){const r=results[t];return r?(r.w*3)+(r.d*1):0;}
 function playerScore(p){return p.picks.filter(Boolean).reduce((s,t)=>s+teamScore(t),0);}
 function getRecord(t){const r=results[t];if(!r||(r.w===0&&r.d===0&&r.l===0))return'Not started';return r.w+'W '+r.d+'D '+r.l+'L';}
 
-// ── RENDER: LEADERBOARD ───────────────────────────────────────────────────────
+// ── RENDER: LEADERBOARD ────────────────────────────────────────────────────
 function renderLeaderboard(){
   const sorted=draft.map(p=>({...p,total:playerScore(p)})).sort((a,b)=>b.total-a.total);
   const el=document.getElementById('leaderboard-list');
@@ -583,10 +495,10 @@ function renderLeaderboard(){
     el.appendChild(card);
   });
   const ts=results._lastUpdated||null;
-  document.getElementById('last-updated').textContent=ts?'Last updated: '+ts:'Tournament kicks off June 11!';
+  document.getElementById('last-updated').textContent=ts?'Last updated by commissioner: '+ts:'Tournament kicks off June 11!';
 }
 
-// ── RENDER: STANDINGS ─────────────────────────────────────────────────────────
+// ── RENDER: STANDINGS ──────────────────────────────────────────────────────
 function renderStandings(){
   const sorted=draft.map(p=>({...p,total:playerScore(p)})).sort((a,b)=>b.total-a.total);
   const body=document.getElementById('standings-body');
@@ -604,7 +516,7 @@ function renderStandings(){
   });
 }
 
-// ── RENDER: ADMIN ─────────────────────────────────────────────────────────────
+// ── RENDER: ADMIN ──────────────────────────────────────────────────────────
 function esc(s){return s.replace(/[\s']/g,'-');}
 function renderAdmin(){
   const grid=document.getElementById('stage-grid');
@@ -613,7 +525,7 @@ function renderAdmin(){
     const r=results[team]||{w:0,d:0,l:0};
     const item=document.createElement('div');
     item.className='stage-item';
-    item.innerHTML='<div style="display:flex;align-items:center;gap:6px;"><span style="font-size:16px;">'+TEAMS[team].flag+'</span><span style="font-size:12px;font-weight:500;">'+team+'</span>'+(r.manual?'<span style="font-size:10px;color:var(--gold);">manual</span>':'')+'</div><div class="record-inputs"><label>W</label><input type="number" id="w-'+esc(team)+'" value="'+r.w+'" min="0" max="9"><label>D</label><input type="number" id="d-'+esc(team)+'" value="'+r.d+'" min="0" max="9"><label>L</label><input type="number" id="l-'+esc(team)+'" value="'+r.l+'" min="0" max="9"></div>';
+    item.innerHTML='<div style="display:flex;align-items:center;gap:6px;"><span style="font-size:16px;">'+TEAMS[team].flag+'</span><span style="font-size:12px;font-weight:500;">'+team+'</span></div><div class="record-inputs"><label>W</label><input type="number" id="w-'+esc(team)+'" value="'+r.w+'" min="0" max="9"><label>D</label><input type="number" id="d-'+esc(team)+'" value="'+r.d+'" min="0" max="9"><label>L</label><input type="number" id="l-'+esc(team)+'" value="'+r.l+'" min="0" max="9"></div>';
     grid.appendChild(item);
   });
   const editor=document.getElementById('draft-editor');
@@ -627,13 +539,13 @@ function renderAdmin(){
   });
 }
 
-// ── SAVE ──────────────────────────────────────────────────────────────────────
+// ── SAVE (commissioner only) ───────────────────────────────────────────────
 async function saveResults(){
   Object.keys(TEAMS).forEach(team=>{
     const w=document.getElementById('w-'+esc(team));
     const d=document.getElementById('d-'+esc(team));
     const l=document.getElementById('l-'+esc(team));
-    if(w) results[team]={w:parseInt(w.value)||0,d:parseInt(d.value)||0,l:parseInt(l.value)||0,manual:true};
+    if(w) results[team]={w:parseInt(w.value)||0,d:parseInt(d.value)||0,l:parseInt(l.value)||0};
   });
   results._lastUpdated=new Date().toLocaleString();
   await saveToCloud();
@@ -654,7 +566,7 @@ function changePassword(){
   showToast('Password updated!');
 }
 
-// ── PASSWORD ──────────────────────────────────────────────────────────────────
+// ── PASSWORD ───────────────────────────────────────────────────────────────
 function checkPassword(){
   const input=document.getElementById('pw-input').value;
   const correct=localStorage.getItem('wc2026_pw')||'worldcup2026';
@@ -676,7 +588,7 @@ function lockAdmin(){
   document.getElementById('lock-icon').textContent='🔒';
 }
 
-// ── TABS ──────────────────────────────────────────────────────────────────────
+// ── TABS ───────────────────────────────────────────────────────────────────
 function showView(id,btn){
   document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
@@ -685,18 +597,21 @@ function showView(id,btn){
   if(id==='standings') renderStandings();
 }
 
-// ── TOAST ─────────────────────────────────────────────────────────────────────
+// ── TOAST ──────────────────────────────────────────────────────────────────
 function showToast(msg){
   const t=document.getElementById('save-toast');
   t.textContent='✓ '+msg;t.classList.add('show');
   setTimeout(()=>t.classList.remove('show'),3000);
 }
 
-// ── INIT ──────────────────────────────────────────────────────────────────────
+// ── INIT ───────────────────────────────────────────────────────────────────
+// Load scores from cloud first (commissioner's data), then ESPN for display
 loadFromCloud();
 fetchScores();
-setInterval(fetchScores,60000);
-setInterval(loadFromCloud,300000);
+// Reload from cloud every 5 min so passive viewers see commissioner updates
+setInterval(loadFromCloud, 300000);
+// Refresh ESPN display every 60 sec — READ ONLY, never writes to database
+setInterval(fetchScores, 60000);
 </script>
 </body>
 </html>
