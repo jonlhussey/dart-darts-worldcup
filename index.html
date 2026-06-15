@@ -608,10 +608,8 @@ function showToast(msg){
 // Load scores from cloud first (commissioner's data), then ESPN for display
 loadFromCloud();
 fetchScores();
-// Refresh ESPN display every 60 sec — READ ONLY, never writes to database
-setInterval(fetchScores, 60000);
-// NOTE: No auto-reload from cloud — scores load once on page open.
-// Viewers refresh the page to see commissioner updates.
+// No auto-refresh intervals — scores load once on page open.
+// ESPN scores and leaderboard update when user refreshes the page.
 </script>
 </body>
 </html>
