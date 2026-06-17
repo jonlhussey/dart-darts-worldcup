@@ -16,6 +16,7 @@ header{text-align:center;padding:40px 0 32px;border-bottom:1px solid rgba(201,16
 .trophy{font-size:44px;display:block;margin-bottom:6px;}
 h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,6vw,68px);letter-spacing:0.04em;color:var(--gold);line-height:1;text-shadow:0 0 40px rgba(201,168,76,0.3);}
 .subtitle{font-size:13px;color:var(--gray);letter-spacing:0.15em;text-transform:uppercase;margin-top:6px;}
+/* SCORES */
 #scores-section{margin-bottom:12px;}
 .scores-header{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
 .scores-title{font-family:'Bebas Neue',sans-serif;font-size:20px;letter-spacing:0.05em;color:var(--gold);}
@@ -36,7 +37,9 @@ h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,6vw,68px);letter-spa
 .game-score.sched{font-size:13px;color:var(--gray);font-family:'DM Sans',sans-serif;}
 .game-info{font-size:11px;color:var(--gray);margin-top:4px;}
 .scores-msg{font-size:13px;color:var(--gray);padding:16px;text-align:center;background:rgba(255,255,255,0.03);border-radius:10px;border:1px solid rgba(255,255,255,0.06);}
+/* H2H */
 #h2h-section{margin-bottom:28px;}
+.h2h-wrap{margin-bottom:16px;}
 .h2h-card{background:rgba(255,255,255,0.04);border:1px solid rgba(201,168,76,0.35);border-radius:16px;padding:24px 20px 20px;position:relative;overflow:hidden;}
 .h2h-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(201,168,76,0.1) 0%,transparent 65%);pointer-events:none;}
 .h2h-label{text-align:center;font-size:10px;text-transform:uppercase;letter-spacing:0.2em;color:var(--gold);margin-bottom:16px;opacity:0.8;}
@@ -54,15 +57,19 @@ h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,6vw,68px);letter-spa
 .h2h-vs{font-family:'Bebas Neue',sans-serif;font-size:22px;color:var(--gray);opacity:0.6;}
 .h2h-winner .h2h-player{color:var(--gold);}
 .h2h-loser{opacity:0.4;}
-.h2h-wrap{margin-bottom:16px;}
+.h2h-kickoff{font-size:15px;color:var(--white);font-weight:500;margin-top:4px;}
+.h2h-date{font-size:12px;color:var(--gray);margin-top:2px;}
+/* LEGEND */
 .scoring-legend{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:32px;}
 .score-pill{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:20px;padding:6px 14px;font-size:12px;color:var(--gray);}
 .score-pill span{color:var(--gold);font-weight:600;}
+/* TABS */
 .tabs{display:flex;gap:4px;margin-bottom:24px;background:rgba(255,255,255,0.04);border-radius:10px;padding:4px;}
 .tab{flex:1;padding:10px;text-align:center;border-radius:8px;cursor:pointer;font-size:13px;font-weight:500;color:var(--gray);border:none;background:none;font-family:'DM Sans',sans-serif;transition:all 0.2s;}
 .tab.active{background:var(--green-field);color:var(--white);box-shadow:0 2px 8px rgba(0,0,0,0.3);}
 .tab:hover:not(.active){color:var(--white);}
 .view{display:none;}.view.active{display:block;}
+/* LEADERBOARD */
 .leaderboard{display:flex;flex-direction:column;gap:10px;}
 .player-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;padding:16px 20px;display:grid;grid-template-columns:44px 1fr auto;align-items:center;gap:16px;cursor:pointer;transition:all 0.2s;}
 .player-card:hover{border-color:rgba(201,168,76,0.3);background:rgba(255,255,255,0.06);}
@@ -88,6 +95,7 @@ h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,6vw,68px);letter-spa
 .team-chip-name{font-weight:500;font-size:13px;}
 .team-chip-stage{font-size:11px;color:var(--gray);}
 .team-chip-pts{font-size:11px;color:var(--gold);}
+/* STANDINGS */
 .standings-grid{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;}
 .standings-header{display:grid;grid-template-columns:40px 1fr repeat(5,70px);padding:12px 20px;font-size:11px;color:var(--gray);text-transform:uppercase;letter-spacing:0.1em;border-bottom:1px solid rgba(255,255,255,0.08);background:rgba(255,255,255,0.03);}
 .standings-row{display:grid;grid-template-columns:40px 1fr repeat(5,70px);padding:14px 20px;border-bottom:1px solid rgba(255,255,255,0.05);align-items:center;font-size:14px;}
@@ -125,7 +133,7 @@ h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,6vw,68px);letter-spa
   <div class="score-pill">Win <span>3 pts</span></div>
   <div class="score-pill">Draw <span>1 pt</span></div>
   <div class="score-pill">Loss <span>0 pts</span></div>
-  <div class="score-pill" style="border-color:rgba(201,168,76,0.25);">Updated Jun 15</div>
+  <div class="score-pill">Updated <span id="legend-updated"></span></div>
 </div>
 
 <div class="tabs">
@@ -153,7 +161,9 @@ h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,6vw,68px);letter-spa
 </div>
 
 <script>
-// ── SCORES — UPDATE THIS SECTION EACH DAY ─────────────────────────────────
+// ══════════════════════════════════════════════════════════════════════════════
+// UPDATE THIS SECTION EACH DAY
+// ══════════════════════════════════════════════════════════════════════════════
 const LAST_UPDATED = 'Jun 17, 2026 — 8:00 AM';
 
 const RESULTS = {
@@ -194,6 +204,9 @@ const RESULTS = {
   'Ghana':       {w:0,d:0,l:0},
   'Qatar':       {w:0,d:1,l:0},
 };
+// ══════════════════════════════════════════════════════════════════════════════
+// END UPDATE SECTION
+// ══════════════════════════════════════════════════════════════════════════════
 
 const DRAFT = [
   {player:'Harris',    picks:['France',      'Canada',    'Senegal',     'Qatar']},
@@ -206,7 +219,6 @@ const DRAFT = [
   {player:'Jervey',    picks:['Germany',     'Morocco',   'Ivory Coast', 'Iran']},
   {player:'McIlroy',   picks:['Belgium',     'Norway',    'Egypt',       'Scotland']},
 ];
-// ── END SCORES SECTION ────────────────────────────────────────────────────
 
 const TEAMS = {
   'Spain':{flag:'🇪🇸'},'France':{flag:'🇫🇷'},'England':{flag:'🏴󠁧󠁢󠁥󠁮󠁧󠁿'},
@@ -222,6 +234,84 @@ const TEAMS = {
   'Paraguay':{flag:'🇵🇾'},'Algeria':{flag:'🇩🇿'},'Czechia':{flag:'🇨🇿'},
   'Bosnia':{flag:'🇧🇦'},'Ghana':{flag:'🇬🇭'},'Qatar':{flag:'🇶🇦'},
 };
+
+// ── FULL GROUP STAGE SCHEDULE (ET times) ──────────────────────────────────
+// Only matches involving pool-owned teams are checked for H2H spotlight
+// Format: [date YYYY-MM-DD, ET time HH:MM, team1, team2]
+const SCHEDULE = [
+  ['2026-06-11','15:00','Mexico','South Africa'],
+  ['2026-06-11','22:00','South Korea','Czechia'],
+  ['2026-06-12','15:00','Canada','Bosnia'],
+  ['2026-06-12','21:00','USA','Paraguay'],
+  ['2026-06-13','15:00','Qatar','Switzerland'],
+  ['2026-06-13','18:00','Brazil','Morocco'],
+  ['2026-06-13','21:00','Haiti','Scotland'],
+  ['2026-06-14','00:00','Australia','Turkey'],
+  ['2026-06-14','13:00','Germany','Curacao'],
+  ['2026-06-14','16:00','Netherlands','Japan'],
+  ['2026-06-14','19:00','Ivory Coast','Ecuador'],
+  ['2026-06-14','22:00','Sweden','Tunisia'],
+  ['2026-06-15','12:00','Spain','Cabo Verde'],
+  ['2026-06-15','15:00','Belgium','Egypt'],
+  ['2026-06-15','18:00','Saudi Arabia','Uruguay'],
+  ['2026-06-15','21:00','Iran','New Zealand'],
+  ['2026-06-16','15:00','France','Senegal'],
+  ['2026-06-16','18:00','Iraq','Norway'],
+  ['2026-06-16','21:00','Argentina','Algeria'],
+  ['2026-06-17','00:00','Austria','Jordan'],
+  ['2026-06-17','13:00','Portugal','DR Congo'],
+  ['2026-06-17','16:00','England','Croatia'],
+  ['2026-06-17','19:00','Ghana','Panama'],
+  ['2026-06-17','22:00','Uzbekistan','Colombia'],
+  ['2026-06-18','12:00','Czechia','South Africa'],
+  ['2026-06-18','15:00','Switzerland','Bosnia'],
+  ['2026-06-18','18:00','Canada','Qatar'],
+  ['2026-06-18','21:00','Mexico','South Korea'],
+  ['2026-06-19','00:00','Turkey','Paraguay'],
+  ['2026-06-19','15:00','USA','Australia'],
+  ['2026-06-19','18:00','Scotland','Morocco'],
+  ['2026-06-19','20:30','Brazil','Haiti'],
+  ['2026-06-20','13:00','Netherlands','Sweden'],
+  ['2026-06-20','16:00','Germany','Ivory Coast'],
+  ['2026-06-20','20:00','Ecuador','Curacao'],
+  ['2026-06-21','00:00','Tunisia','Japan'],
+  ['2026-06-21','12:00','Spain','Saudi Arabia'],
+  ['2026-06-21','15:00','Belgium','Iran'],
+  ['2026-06-21','18:00','Uruguay','Cabo Verde'],
+  ['2026-06-21','21:00','New Zealand','Egypt'],
+  ['2026-06-22','13:00','Argentina','Austria'],
+  ['2026-06-22','17:00','France','Iraq'],
+  ['2026-06-22','20:00','Norway','Senegal'],
+  ['2026-06-22','23:00','Jordan','Algeria'],
+  ['2026-06-23','13:00','Portugal','Uzbekistan'],
+  ['2026-06-23','16:00','England','Ghana'],
+  ['2026-06-23','19:00','Panama','Croatia'],
+  ['2026-06-23','22:00','Colombia','DR Congo'],
+  ['2026-06-24','15:00','Switzerland','Canada'],
+  ['2026-06-24','15:00','Bosnia','Qatar'],
+  ['2026-06-24','18:00','Scotland','Brazil'],
+  ['2026-06-24','18:00','Morocco','Haiti'],
+  ['2026-06-24','21:00','Czechia','Mexico'],
+  ['2026-06-24','21:00','South Africa','South Korea'],
+  ['2026-06-25','16:00','Curacao','Ivory Coast'],
+  ['2026-06-25','16:00','Ecuador','Germany'],
+  ['2026-06-25','19:00','Japan','Sweden'],
+  ['2026-06-25','19:00','Tunisia','Netherlands'],
+  ['2026-06-25','22:00','Turkey','USA'],
+  ['2026-06-25','22:00','Paraguay','Australia'],
+  ['2026-06-26','15:00','Norway','France'],
+  ['2026-06-26','15:00','Senegal','Iraq'],
+  ['2026-06-26','20:00','Cabo Verde','Saudi Arabia'],
+  ['2026-06-26','20:00','Uruguay','Spain'],
+  ['2026-06-26','23:00','Egypt','Iran'],
+  ['2026-06-26','23:00','New Zealand','Belgium'],
+  ['2026-06-27','17:00','Panama','England'],
+  ['2026-06-27','17:00','Croatia','Ghana'],
+  ['2026-06-27','19:30','Colombia','Portugal'],
+  ['2026-06-27','19:30','DR Congo','Uzbekistan'],
+  ['2026-06-27','22:00','Algeria','Austria'],
+  ['2026-06-27','22:00','Jordan','Argentina'],
+];
 
 const ESPN_MAP = {
   'Spain':'Spain','France':'France','England':'England','Brazil':'Brazil',
@@ -250,7 +340,27 @@ function teamScore(t){const r=RESULTS[t];return r?(r.w*3)+(r.d):0;}
 function playerScore(p){return p.picks.filter(Boolean).reduce((s,t)=>s+teamScore(t),0);}
 function getRecord(t){const r=RESULTS[t];if(!r||(r.w===0&&r.d===0&&r.l===0))return'Not started';return r.w+'W '+r.d+'D '+r.l+'L';}
 
-// ── ESPN FETCH (display only) ─────────────────────────────────────────────
+// ── HELPERS ───────────────────────────────────────────────────────────────
+// Parse a schedule date+time into a local Date object (treats ET as local for simplicity)
+function schedDate(dateStr, timeStr) {
+  const [y,m,d] = dateStr.split('-').map(Number);
+  const [h,min] = timeStr.split(':').map(Number);
+  // Create date in ET (UTC-4 during summer)
+  return new Date(Date.UTC(y, m-1, d, h+4, min));
+}
+
+function todayET() {
+  // Get current date string in ET
+  return new Date().toLocaleDateString('en-CA', {timeZone:'America/New_York'});
+}
+
+function tomorrowET() {
+  const d = new Date();
+  d.setDate(d.getDate()+1);
+  return d.toLocaleDateString('en-CA', {timeZone:'America/New_York'});
+}
+
+// ── ESPN FETCH ────────────────────────────────────────────────────────────
 async function fetchScores(){
   for(const proxy of PROXIES){
     try{
@@ -267,18 +377,18 @@ async function fetchScores(){
       return;
     }catch(e){continue;}
   }
+  // ESPN failed — still render H2H from hardcoded schedule
   document.getElementById('scores-container').innerHTML='<div class="scores-msg">⚡ Live scores unavailable right now.</div>';
   document.getElementById('scores-status').textContent='Offline';
+  renderH2H(); // always runs from schedule
 }
 
 // ── RENDER: MATCH CARDS ───────────────────────────────────────────────────
 function renderScores(){
   const container=document.getElementById('scores-container');
   if(!espnGames.length){
-    const today=new Date(),kickoff=new Date('2026-06-11T00:00:00');
-    const d=Math.ceil((kickoff-today)/864e5);
-    container.innerHTML='<div class="scores-msg">'+(today<kickoff?'⏳ Tournament kicks off June 11 — <strong>'+d+' days to go!</strong>':'No matches today — check back on the next match day!')+'</div>';
-    document.getElementById('scores-status').textContent=today<kickoff?'Starts in '+d+'d':'No games today';
+    container.innerHTML='<div class="scores-msg">No matches today — check back on the next match day!</div>';
+    document.getElementById('scores-status').textContent='No games today';
     return;
   }
   let hasLive=false;
@@ -306,50 +416,86 @@ function renderScores(){
   document.getElementById('scores-status').textContent=hasLive?'Live now':'Updated '+new Date().toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
 }
 
-// ── RENDER: H2H SPOTLIGHT ────────────────────────────────────────────────
+// ── RENDER: H2H SPOTLIGHT ─────────────────────────────────────────────────
+// Always renders from hardcoded schedule. ESPN score layered on top if available.
 function renderH2H(){
   const section=document.getElementById('h2h-section');
-  const matchups=[];
-  espnGames.forEach(ev=>{
-    const comp=ev.competitions[0];
-    const home=comp.competitors.find(c=>c.homeAway==='home');
-    const away=comp.competitors.find(c=>c.homeAway==='away');
-    if(!home||!away) return;
-    const homeName=ESPN_MAP[home.team.displayName]||ESPN_MAP[home.team.name]||ESPN_MAP[home.team.shortDisplayName];
-    const awayName=ESPN_MAP[away.team.displayName]||ESPN_MAP[away.team.name]||ESPN_MAP[away.team.shortDisplayName];
-    if(!homeName||!awayName) return;
-    const homeOwner=DRAFT.find(p=>p.picks.includes(homeName));
-    const awayOwner=DRAFT.find(p=>p.picks.includes(awayName));
-    if(!homeOwner||!awayOwner||homeOwner.player===awayOwner.player) return;
-    matchups.push({ev,home,away,homeName,awayName,homeOwner,awayOwner});
+  const today=todayET();
+  const tomorrow=tomorrowET();
+
+  // Find today's + tomorrow's scheduled matches involving two different pool owners
+  const poolMatchups=[];
+  SCHEDULE.forEach(([date,time,t1,t2])=>{
+    if(date!==today && date!==tomorrow) return;
+    const owner1=DRAFT.find(p=>p.picks.includes(t1));
+    const owner2=DRAFT.find(p=>p.picks.includes(t2));
+    if(!owner1||!owner2||owner1.player===owner2.player) return;
+    poolMatchups.push({date,time,t1,t2,owner1,owner2});
   });
-  if(!matchups.length){section.innerHTML='';return;}
-  const html=matchups.map(({ev,home,away,homeName,awayName,homeOwner,awayOwner})=>{
-    const st=ev.status.type;
-    const isLive=st.state==='in',isDone=st.state==='post';
-    const hs=parseInt(home.score)||0,as=parseInt(away.score)||0;
-    let awayWin=false,homeWin=false;
-    if(isDone){if(as>hs)awayWin=true;else if(hs>as)homeWin=true;}
-    const awayFlag=TEAMS[awayName]?.flag||'🏳️';
-    const homeFlag=TEAMS[homeName]?.flag||'🏳️';
-    const kickoff=new Date(ev.date).toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
-    const dateStr=new Date(ev.date).toLocaleDateString([],{weekday:'short',month:'short',day:'numeric'});
-    let scoreBlock,clockBlock,awayClass='',homeClass='';
-    if(isLive){
-      scoreBlock='<div class="h2h-score">'+as+' – '+hs+'</div>';
-      clockBlock='<div class="h2h-live-badge"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#E74C3C;margin-right:4px;animation:blink 1s infinite;"></span>LIVE</div><div class="h2h-clock live-clk">'+st.displayClock+'</div>';
-    }else if(isDone){
-      scoreBlock='<div class="h2h-score">'+as+' – '+hs+'</div>';
-      clockBlock='<div class="h2h-clock">Final</div>';
-      if(awayWin){awayClass='h2h-winner';homeClass='h2h-loser';}
-      else if(homeWin){homeClass='h2h-winner';awayClass='h2h-loser';}
-    }else{
-      scoreBlock='<div class="h2h-vs">VS</div><div style="font-size:14px;color:var(--white);font-weight:500;margin-top:4px;">'+kickoff+'</div>';
-      clockBlock='<div class="h2h-clock">'+dateStr+'</div>';
+
+  if(!poolMatchups.length){section.innerHTML='';return;}
+
+  const html=poolMatchups.map(({date,time,t1,t2,owner1,owner2})=>{
+    const kickoffDt=schedDate(date,time);
+    const kickoffStr=kickoffDt.toLocaleTimeString([],{hour:'numeric',minute:'2-digit'});
+    const dateStr=kickoffDt.toLocaleDateString([],{weekday:'short',month:'short',day:'numeric'});
+    const now=new Date();
+    const isToday=date===today;
+
+    // Try to find live ESPN score for this matchup
+    let liveScore=null;
+    if(espnGames.length){
+      liveScore=espnGames.find(ev=>{
+        const comp=ev.competitions[0];
+        const home=comp.competitors.find(c=>c.homeAway==='home');
+        const away=comp.competitors.find(c=>c.homeAway==='away');
+        const hn=ESPN_MAP[home?.team.displayName]||ESPN_MAP[home?.team.name];
+        const an=ESPN_MAP[away?.team.displayName]||ESPN_MAP[away?.team.name];
+        return (hn===t1&&an===t2)||(hn===t2&&an===t1);
+      });
     }
-    return '<div class="h2h-wrap"><div class="h2h-label">🔥 Pool Matchup</div><div class="h2h-card"><div class="h2h-matchup"><div class="h2h-side '+awayClass+'"><div class="h2h-player">'+awayOwner.player+'</div><span class="h2h-flag">'+awayFlag+'</span><div class="h2h-country">'+awayName+'</div><div class="h2h-pts">'+playerScore(awayOwner)+' pts total</div></div><div class="h2h-center">'+scoreBlock+clockBlock+'</div><div class="h2h-side '+homeClass+'"><div class="h2h-player">'+homeOwner.player+'</div><span class="h2h-flag">'+homeFlag+'</span><div class="h2h-country">'+homeName+'</div><div class="h2h-pts">'+playerScore(homeOwner)+' pts total</div></div></div></div></div>';
+
+    const flag1=TEAMS[t1]?.flag||'🏳️';
+    const flag2=TEAMS[t2]?.flag||'🏳️';
+
+    let scoreBlock,clockBlock,class1='',class2='';
+
+    if(liveScore){
+      const st=liveScore.status.type;
+      const comp=liveScore.competitions[0];
+      const home=comp.competitors.find(c=>c.homeAway==='home');
+      const away=comp.competitors.find(c=>c.homeAway==='away');
+      const hn=ESPN_MAP[home?.team.displayName]||ESPN_MAP[home?.team.name];
+      // figure out which ESPN team maps to t1/t2
+      const s1=hn===t1?parseInt(home.score)||0:parseInt(away.score)||0;
+      const s2=hn===t2?parseInt(home.score)||0:parseInt(away.score)||0;
+      const isLive=st.state==='in',isDone=st.state==='post';
+      if(isLive){
+        scoreBlock='<div class="h2h-score">'+s1+' – '+s2+'</div>';
+        clockBlock='<div class="h2h-live-badge"><span style="display:inline-block;width:7px;height:7px;border-radius:50%;background:#E74C3C;margin-right:4px;animation:blink 1s infinite;"></span>LIVE</div><div class="h2h-clock live-clk">'+(st.displayClock||'')+'</div>';
+      }else if(isDone){
+        scoreBlock='<div class="h2h-score">'+s1+' – '+s2+'</div>';
+        clockBlock='<div class="h2h-clock">Final</div>';
+        if(s1>s2){class1='h2h-winner';class2='h2h-loser';}
+        else if(s2>s1){class2='h2h-winner';class1='h2h-loser';}
+      }else{
+        scoreBlock='<div class="h2h-vs">VS</div>';
+        clockBlock='<div class="h2h-kickoff">'+kickoffStr+'</div><div class="h2h-date">'+dateStr+'</div>';
+      }
+    }else{
+      // No ESPN data — show from schedule
+      const isPast=now>kickoffDt && isToday;
+      scoreBlock='<div class="h2h-vs">VS</div>';
+      clockBlock=isPast
+        ?'<div class="h2h-clock">Score pending</div>'
+        :'<div class="h2h-kickoff">'+kickoffStr+'</div><div class="h2h-date">'+dateStr+'</div>';
+    }
+
+    const label=date===today?'🔥 Pool Matchup — Today':'🔥 Pool Matchup — Tomorrow';
+    return '<div class="h2h-wrap"><div class="h2h-label">'+label+'</div><div class="h2h-card"><div class="h2h-matchup"><div class="h2h-side '+class1+'"><div class="h2h-player">'+owner1.player+'</div><span class="h2h-flag">'+flag1+'</span><div class="h2h-country">'+t1+'</div><div class="h2h-pts">'+playerScore(owner1)+' pts total</div></div><div class="h2h-center">'+scoreBlock+clockBlock+'</div><div class="h2h-side '+class2+'"><div class="h2h-player">'+owner2.player+'</div><span class="h2h-flag">'+flag2+'</span><div class="h2h-country">'+t2+'</div><div class="h2h-pts">'+playerScore(owner2)+' pts total</div></div></div></div></div>';
   }).join('');
-  section.innerHTML=html;
+
+  section.innerHTML=html||'';
 }
 
 // ── RENDER: LEADERBOARD ───────────────────────────────────────────────────
@@ -406,8 +552,9 @@ function showView(id,btn){
 }
 
 // ── INIT ──────────────────────────────────────────────────────────────────
+document.getElementById('legend-updated').textContent=LAST_UPDATED;
 renderLeaderboard();
-fetchScores(); // one-time fetch, no intervals, nothing writes back
+fetchScores(); // one-time fetch, no intervals, nothing writes anywhere
 </script>
 </body>
 </html>
